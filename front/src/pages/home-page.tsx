@@ -1,25 +1,12 @@
 import HomeLayout from '../layouts/_home-layout';
 import axios from 'axios';
-import {
-	MutableRefObject,
-	ReactNode,
-	useEffect,
-	useRef,
-	useState,
-} from 'react';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { CTE } from '../cts';
 import nProgress from 'nprogress';
 import PH from '../components/loaders/ph';
-import { create, all } from 'mathjs';
+import { multiply, bignumber, format } from 'mathjs';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-
-const mathjs = create(all);
-mathjs.config({
-	number: 'BigNumber',
-	precision: 128,
-	epsilon: 1e-128,
-});
 
 const HomePage = () => {
 	const tbody_ref = useRef() as MutableRefObject<HTMLTableSectionElement>;
@@ -110,18 +97,9 @@ const HomePage = () => {
 												</td>
 												<td>{e.txs_count}</td>
 												<td className='last-lb'>
-													{mathjs.format(
-														mathjs
-															.multiply(
-																mathjs.bignumber(e.burnt),
-																mathjs.bignumber(1e-18)
-															)
-															.toString(),
-														{
-															notation: 'fixed',
-															lowerExp: Infinity,
-															upperExp: Infinity,
-														}
+													{format(
+														multiply(bignumber(e.burnt), bignumber(1e-18)),
+														{ notation: 'fixed' }
 													)}{' '}
 													ETH
 												</td>
