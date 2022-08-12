@@ -1,5 +1,6 @@
 import { bignumber, round } from 'mathjs';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../redux/hooks';
 import PH from '../loaders/ph';
 
@@ -8,7 +9,7 @@ const MainHeader = () => {
 	return (
 		<div className='main-header'>
 			<div className='main-header-title'>
-				Simple Ethereum blockchain explorer
+				<Link to={'/'}>Simple Ethereum blockchain explorer</Link>
 			</div>
 			<div className='main-header-gasprice'>
 				<div className='text'>⛽ Gas Price:</div>

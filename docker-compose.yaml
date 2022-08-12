@@ -17,7 +17,6 @@ services:
       - --ws
       - --ws.port=5566
       - --ws.addr=0.0.0.0
-      - --goerli
 #   front:
 #     container_name: ex-front
 #     image: ex-front

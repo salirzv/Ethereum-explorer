@@ -93,7 +93,7 @@ const HomePage = () => {
 										return (
 											<tr key={index}>
 												<td>
-													<Link to={'/block'}>{e.number}</Link>
+													<Link to={`/block/${e.number}`}>{e.number}</Link>
 												</td>
 												<td>{e.txs_count}</td>
 												<td className='last-lb'>

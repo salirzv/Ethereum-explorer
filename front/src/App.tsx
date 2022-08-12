@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import BlockPage from './pages/block-page';
 import HomePage from './pages/home-page';
@@ -15,7 +15,8 @@ function App() {
 						<ToastContainer />
 						<Routes>
 							<Route path='/' element={<HomePage />} />
-							<Route path='/block' element={<BlockPage />} />
+							<Route path='/block/:id' element={<BlockPage />} />
+							<Route path='*' element={<Navigate to={'/'} />} />
 						</Routes>
 					</BrowserRouter>
 				</ContextWrap>
